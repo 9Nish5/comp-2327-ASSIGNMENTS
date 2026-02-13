@@ -67,7 +67,7 @@ class TestChequingAccount(unittest.TestCase):
         # Assert
         self.assertEqual(expected_date, chequing_account.date_created)
 
-    def test_get_service_charges_balance_greater_than_overdraft_limit(self):
+    def test_get_service_charge_balance_greater_than_overdraft_limit(self):
         """Test Case 5: Service charge should be BASE_SERVICE_CHARGE when balance > limit."""
         # Arrange
         overdraft_limit = -100.0
@@ -76,12 +76,12 @@ class TestChequingAccount(unittest.TestCase):
                                            overdraft_limit, 0.05)
 
         # Act
-        actual_service_charge = chequing_account.get_service_charges()
+        actual_service_charge = chequing_account.get_service_charge()
 
         # Assert
         self.assertEqual(0.50, actual_service_charge)
 
-    def test_get_service_charges_balance_less_than_overdraft_limit(self):
+    def test_get_service_charge_balance_less_than_overdraft_limit(self):
         """Test Case 6: Service charge should include overdraft fees when balance < limit."""
         # Arrange
         # Formula: 0.50 + (-100 - -600) * 0.05 = 25.50
@@ -92,12 +92,12 @@ class TestChequingAccount(unittest.TestCase):
                                            overdraft_limit, overdraft_rate)
 
         # Act
-        actual_service_charge = chequing_account.get_service_charges()
+        actual_service_charge = chequing_account.get_service_charge()
 
         # Assert
         self.assertEqual(25.50, round(actual_service_charge, 2))
 
-    def test_get_service_charges_balance_equal_to_overdraft_limit(self):
+    def test_get_service_charge_balance_equal_to_overdraft_limit(self):
         """Test Case 7: Service charge should be BASE_SERVICE_CHARGE when balance == limit."""
         # Arrange
         overdraft_limit = -100.0
@@ -106,7 +106,7 @@ class TestChequingAccount(unittest.TestCase):
                                            overdraft_limit, 0.05)
 
         # Act
-        actual_service_charge = chequing_account.get_service_charges()
+        actual_service_charge = chequing_account.get_service_charge()
 
         # Assert
         self.assertEqual(0.50, actual_service_charge)

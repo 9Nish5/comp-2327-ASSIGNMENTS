@@ -3,7 +3,7 @@ from datetime import date
 
 
 class BankAccount(ABC):
-    BASE_SERVICE_CHARGE = 0.50
+    BASE_SERVICE_charges = 0.50
     """
     Represents a bank account,
     belonging to a specific client.
@@ -67,10 +67,10 @@ class BankAccount(ABC):
         return self.__date_created
     
     
-    def get_service_charge(self) -> float:
+    def get_service_charges(self) -> float:
         """
 
-        Calculates and returns the service charges for the account.
+        Calculates and returns the service chargess for the account.
         Must be implemented by subclasses.
         
         """
