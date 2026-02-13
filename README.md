@@ -4,11 +4,11 @@ This project will be developed over the course of several assignments.  Each ass
 
 ## Author
 
-[Your name]
+Nishant Malhotra
 
 ## Assignment
 
-Assignment [assignment number]: [Indicate the name and description of the current assignment]
+Assignment 1: [Indicate the name and description of the current assignment]
 
 ## Encapsulation
 
