@@ -38,7 +38,7 @@ class Client:
 
         # Validate email address
         try: 
-            validate_email(email_address)
+            validate_email(email_address, check_deliverability = False)
             self.__email_address = email_address
         except EmailNotValidError:
             self.__email_address = "email@pixell-river.com"
