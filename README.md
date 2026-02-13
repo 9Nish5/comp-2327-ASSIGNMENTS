@@ -14,4 +14,14 @@ Assignment 2: This assignment will extend the BankAccount class created in your 
 
 ## Encapsulation
 
-[use this section to explain how Encapsulation was achieved in the BankAccount class.]
+Polymorphism is a fancy word for a simple idea. 
+Different objects can respond to the same command in their own way. Even though they all have the same name,
+they act differently depending on which account you are using.
+This program treats every account as just a "BankAccount", 
+and tells each one to calculate its charges by calling get_service_charges().
+Chequing account checks if the balance is below overdraft limit and adds a
+fee if it is.
+Savings account looks to see if the balance is below the minimum and doubles 
+the charge if it is.
+Investment account checks the date the account was opened.
+If its over 10 years old, it waives the fee entirely.
