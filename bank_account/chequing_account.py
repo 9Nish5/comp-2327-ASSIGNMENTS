@@ -21,7 +21,7 @@ class ChequingAccount(BankAccount):
 
         
 
-    def get_service_chargess(self) -> float:
+    def get_service_charges(self) -> float:
         """Calculates changes based on overdraft limit."""
         total_charges = (BankAccount.BASE_SERVICE_CHARGE+
                         (self.__overdraft_limit - self.balance)
