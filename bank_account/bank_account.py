@@ -80,7 +80,12 @@ class BankAccount:
         
         if value <= 0:
             # Currency formatting
-            raise ValueError(f"Deposit amount: ${value:,.2f} must be positive.")
+            if value < 0:
+                positive_value = value * -1
+                formatted_value = f"-${positive_value:,.2f}"
+            else:
+                formatted_value = f"${value:,.2f}"
+            raise ValueError(f"Deposit amount: {formatted_value} must be positive.")
         
         self.update_balance(value)
 
@@ -104,7 +109,11 @@ class BankAccount:
             raise ValueError(f"Withdraw amount: {amount} must be numeric.")
         
         if value <= 0:
-            raise ValueError(f"Withdraw amount: ${value:,.2f} must be positive.")
+            if value < 0:
+                # Multiply by -1 to make it positive for formatting
+                positive_value = value * -1
+                formatted_amount = f"-${positive_value:,.2f}"
+            raise ValueError(f"Withdraw amount: {formatted_amount} must be positive.")
         
         if value > self.__balance:
             raise ValueError(f"Withdraw amount: ${value:,.2f} must not exceed the " 
