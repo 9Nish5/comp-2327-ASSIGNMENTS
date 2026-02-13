@@ -1,10 +1,17 @@
-class BankAccount:
+from abc import ABC, abstractmethod
+from datetime import date
+
+
+class BankAccount(ABC):
+    BASE_SERVICE_CHARGE = 0.50
     """
     Represents a bank account,
     belonging to a specific client.
+
+    Abstract Base Class for all bank account types.
        
     """
-    def __init__(self, account_number: int, client_number: int, balance: float):
+    def __init__(self, account_number: int, client_number: int, balance: float, date_created: date):
         """
         Initializes a BankAccount with Validation.
 
@@ -12,6 +19,7 @@ class BankAccount:
             account_number (int): The unique bank account identifier.
             client_number (int): The identifier of the account owner.
             balance (float): The starting balance.
+            date_created (date): The date the account was opened.
 
         Raises:
             ValueError: If account/client numbers are not integers.
@@ -25,6 +33,12 @@ class BankAccount:
         if not isinstance (client_number, int):
             raise ValueError("Client number must be an integer.")
         self.__client_number = client_number
+
+        # Date Validation
+        if isinstance(date_created, date):
+            self.__date_created = date_created
+        else:
+            self.__date_created = date.today()
 
         # Validate balance: Convert to float, default to 0.0 on faliure
         try:
@@ -46,6 +60,21 @@ class BankAccount:
     def balance(self) -> float:
         """Returns the current balance."""
         return self.__balance
+    
+    @property
+    def date_created(self):
+        """date: Returns the date the account was created."""
+        return self.__date_created
+    
+    @abstractmethod
+    def get_service_charge(self) -> float:
+        """
+
+        Calculates and returns the service charges for the account.
+        Must be implemented by subclasses.
+        
+        """
+        pass
     
     def update_balance(self, amount: float):
         """
