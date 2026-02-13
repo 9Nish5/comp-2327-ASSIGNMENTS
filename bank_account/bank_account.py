@@ -3,7 +3,7 @@ from datetime import date
 
 
 class BankAccount(ABC):
-    BASE_SERVICE_charges = 0.50
+    BASE_SERVICE_CHARGE = 0.50
     """
     Represents a bank account,
     belonging to a specific client.
