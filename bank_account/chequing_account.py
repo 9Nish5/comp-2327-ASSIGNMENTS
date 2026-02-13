@@ -19,7 +19,9 @@ class ChequingAccount(BankAccount):
         except (ValueError, TypeError):
             self.__overdraft_rate = 0.05
 
-    def get_service_charge(self) -> float:
+        
+
+    def get_service_charges(self) -> float:
         """Calculates changes based on overdraft limit."""
         total_charge = (BankAccount.BASE_SERVICE_CHARGE+
                         (self.__overdraft_limit - self.balance)
@@ -30,7 +32,7 @@ class ChequingAccount(BankAccount):
             return total_charge
         
     def __str__(self):
-        return (f"{super().__str__()}\n"
-                f"Overdraft Limit: ${self.__overdraft_limit:,.2f}"
-                f"Overdraft Rate: {self.__overdraft_rate:,.2%}"
-                f"Account type: Chequing")
+        return (f"{super().__str__()}"
+                f"Overdraft Limit: ${self.__overdraft_limit:,.2f} "
+                f"Overdraft Rate: {self.__overdraft_rate:.2%} "
+                f"Account Type: Chequing")

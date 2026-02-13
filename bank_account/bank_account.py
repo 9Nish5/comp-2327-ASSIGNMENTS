@@ -66,7 +66,7 @@ class BankAccount(ABC):
         """date: Returns the date the account was created."""
         return self.__date_created
     
-    @abstractmethod
+    
     def get_service_charge(self) -> float:
         """
 
