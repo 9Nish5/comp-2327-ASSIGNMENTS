@@ -8,30 +8,10 @@ Nishant Malhotra
 
 ## Assignment
 
-Assignment 1: [Indicate the name and description of the current assignment]
+Assignment 1: In this assignment you will leverage the knowledge gained in Module 01 to develop classes to support a larger system. This is the first of many assignments in this course, each of which will build on the previous assignment in order to produce a complete system. The focus of this assignment aligns with the focus of the first module - that is, classes, encapsulation and unit test planning.
+
+Assignment 2: This assignment will extend the BankAccount class created in your previous assignment. The BankAccount class will be used as a superclass from which more specific subclasses will be derived. Each subclass will inherit attributes and methods from the superclass, and will incorporate functionality specific to the subclass. Polymorphism will be realized by having each subclass provide their own unique implementation to a superclass method. Unit testing in this assignment will be limited to verifying the expected polymorphic behaviour.
 
 ## Encapsulation
 
-1. Data Hiding (Private Attributes)
-
-Encapsulation starts by hiding the internal state of the object. In the BankAccount class, attributes like balance, account_number, and client_number were defined using Double Underscores (e.g., self.__balance).
-
-    Why: This triggers Name Mangling, making it difficult for external code to accidentally or intentionally modify the balance without going through the proper channels.
-
-    Result: You cannot simply call account.__balance = 1000000 from your main.py.
-
-2. Controlled Access (Properties/Getters)
-
-To allow other parts of the program to see the data without changing it directly, Properties (Getters) were used.
-
-    The @property decorator allows the balance to be read like a variable (print(account.balance)).
-
-    Because no @balance.setter was created, the balance is effectively read-only from the outside.
-
-3. Protection of Integrity (Validation Methods)
-
-Instead of allowing direct modification of attributes, the class provides public methods like deposit() and withdraw(). These act as "gatekeepers."
-
-    Validation: These methods check if the input is numeric, positive, or if there are sufficient funds before changing the __balance.
-
-    Single Point of Truth: The actual update to the balance happens in a private/internal method (update_balance), ensuring that the logic for changing money is centralized and secure.
+[use this section to explain how Encapsulation was achieved in the BankAccount class.]
