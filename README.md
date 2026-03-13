@@ -12,16 +12,24 @@ Assignment 1: In this assignment you will leverage the knowledge gained in Modul
 
 Assignment 2: This assignment will extend the BankAccount class created in your previous assignment. The BankAccount class will be used as a superclass from which more specific subclasses will be derived. Each subclass will inherit attributes and methods from the superclass, and will incorporate functionality specific to the subclass. Polymorphism will be realized by having each subclass provide their own unique implementation to a superclass method. Unit testing in this assignment will be limited to verifying the expected polymorphic behaviour.
 
-## Encapsulation
+Assignment 3: This is a banking system that handles different types of accounts (Chequing, Savings, and Investment). For this assignment, I updated the code to use two important "Design Patterns" called Strategy and Observer. These help make the code cleaner and easier to change later.
 
-Polymorphism is a fancy word for a simple idea. 
-Different objects can respond to the same command in their own way. Even though they all have the same name,
-they act differently depending on which account you are using.
-This program treats every account as just a "BankAccount", 
-and tells each one to calculate its charges by calling get_service_charges().
-Chequing account checks if the balance is below overdraft limit and adds a
-fee if it is.
-Savings account looks to see if the balance is below the minimum and doubles 
-the charge if it is.
-Investment account checks the date the account was opened.
-If its over 10 years old, it waives the fee entirely.
+## Strategy Pattern
+I moved the math for calculating service charges out of the main account files and into their own "Strategy" files.
+
+* **Why?: Instead of one giant file doing everything, the BankAccount now just asks a specific strategy object to handle 
+          the math.
+* **How it Works?:
+        1. I removed BASE_SERVICE_CHARGE from the BankAccount class.
+        2. Each account (like ChequingAccount) now has its own strategy.
+        3. For example, the Overdraft Strategy calculates fees based on the overdraft limit and rate.
+
+## The Observer Pattern
+I set up a system where the BankAccount can "talk" to the Client automatically whenever something
+important happens.
+
+* **The Subject: The BankAccount is the "Subject". It keeps a list of people to notify.
+* **The Observer: The Client is the "Observer". It waits for a message from the bank.
+* **The Alerts: When you deposit or withdraw money, the bank checks two things:
+            1. Low balance: If the balance drops below $50.0, it sends an alert.
+            2. Large Transactions: If you move more than $10,000.00 at once, it sends an alert.
