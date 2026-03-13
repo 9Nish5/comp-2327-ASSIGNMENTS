@@ -1,3 +1,11 @@
+"""
+Description: A module representing a base bank account.
+Author: Nishant Malhotra
+Version: 1.0.0
+
+"""
+
+
 from abc import ABC, abstractmethod
 from datetime import date
 from patterns.observer.subject import Subject
@@ -6,16 +14,18 @@ from patterns.observer.subject import Subject
 class BankAccount(Subject, ABC):
     
     """
-    Represents a bank account,
-    belonging to a specific client.
+    Represents a bank account, belonging to a specific client.
 
     Abstract Base Class for all bank account types.
+
+    Acts as a Subject in the Observer Pattern
        
     """
     LOW_BALANCE_LEVEL = 50.0
     LARGE_TRANSACTION_THRESHOLD = 10000.0
     
-    def __init__(self, account_number: int, client_number: int, balance: float, date_created: date):
+    def __init__(self, account_number: int, client_number: int, 
+                 balance: float, date_created: date):
         """
         Initializes a BankAccount with Validation.
 

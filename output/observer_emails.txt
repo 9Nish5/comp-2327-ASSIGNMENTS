@@ -58,3 +58,63 @@ To: ezio.auditore@ac.com
 Subject: ALERT: Unusual Activity: 2026-03-13 05:33:52.190739
 Message: Notification for 123: Ezio Auditore: Large Transaction $15,480.00: on account 1001.
 ---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:12:52.912395
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:12:52.912935
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:12:52.913689
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:12:52.914102
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:30.382164
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:30.382646
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:30.383102
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:30.383668
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:51.072902
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:51.073422
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:51.074064
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 06:13:51.074469
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 2001.
+---

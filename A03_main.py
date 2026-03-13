@@ -1,4 +1,6 @@
-"""A program to demonstrate your understanding of the Observer Pattern.
+"""
+A program to demonstrate your understanding of the Observer Pattern.
+
 """
 
 __author__ = "ACE Faculty"
@@ -55,14 +57,40 @@ savings_2 = SavingsAccount(3001, 456, 200.0, date.today(), 50.0)
 # ensure the methods are invoked using proper exception handling such 
 # that any exception messages are printed to the console.
 
-try:
-    print("Executing large deposit...")
-    chequing.deposit(15000.0)
+accounts_to_test = [
+    ("Chequing (Ezio)", chequing),
+    ("Savings, (Ezio)", savings),
+    ("Savings, (Tony)", savings_2)
+]
+for name, account in accounts_to_test:
+    print(f"\n--- Testing Account: {name} ---")
 
-    print ("Executing withdrawal to low balance...")
-    chequing.withdraw(15480.0)
+    # Transaction 1: Standard deposit (No notification)
+    try:
+        print("Action: Standard deposit of $100.0")
+        account.deposit(100.0)
+        print(f"Result: {account}")
+    except ValueError as e:
+        print(f"Error: {e}")
 
-    print("Executing standard transaction (no notification)...")
-    savings.deposit(10.0)
-except Exception as e:
-    print(f"Transaction Error: {e}")
+    print()
+    # Transaction 2: Large Deposit
+    try:
+        print("Action: Large Deposit of $15,000.00")
+        account.deposit(15000.0)
+        print(f"Result: {account}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+    print()
+
+    # Transaction 3: Withdrawal to low balance
+    try:
+        print("Action: Withdrawal of $15,050.00")
+        account.withdraw(15000.0)
+        print(f"Result: {account}")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+print("\nTransaction Complete! Check 'output/observer_emails.txt' for alerts.")
+

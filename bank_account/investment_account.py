@@ -1,3 +1,7 @@
+"""
+Module representing an investment account.
+
+"""
 from bank_account.bank_account import BankAccount
 from patterns.strategy.management_fee_strategy import ManagementFeeStrategy
 from datetime import date, timedelta

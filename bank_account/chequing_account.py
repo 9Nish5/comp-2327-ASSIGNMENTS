@@ -1,18 +1,26 @@
+"""
+Module representing a chequing account with overdraft.
+"""
+
 from bank_account.bank_account import BankAccount
 from patterns.strategy.overdraft_strategy import OverdraftStrategy
 
 class ChequingAccount(BankAccount):
     """
     
-    Represents a chequing account with overdraft protection.
+    Represents a chequing account using the Strategy pattern for fees.
     
     """
-    def __init__(self, account_number, client_number, balance, date_created, overdraft_limit, overdraft_rate):
+    def __init__(self, account_number, client_number, balance, date_created,
+                 overdraft_limit, overdraft_rate):
         """
         Initializes the ChequingAccount and sets up its service charge strategy.
         
         """
         super().__init__(account_number, client_number, balance, date_created)
+
+        self.__overdraft_limit = float(overdraft_limit)
+        self.__overdraft_rate = float(overdraft_rate)
 
         try:
             self.__overdraft_limit = float(overdraft_limit)
@@ -25,7 +33,8 @@ class ChequingAccount(BankAccount):
             self.__overdraft_rate = 0.05
 
         # Create the private strategy attribute
-        self.__service_charge_strategy = OverdraftStrategy(self.__overdraft_limit, self.__overdraft_rate)
+        self.__service_charge_strategy = OverdraftStrategy(self.__overdraft_limit, 
+                                                           self.__overdraft_rate)
 
     def get_service_charges(self) -> float:
         """
