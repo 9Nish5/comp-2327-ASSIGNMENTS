@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from datetime import date
+from patterns.observer.subject import Subject
 
 
 class BankAccount(ABC):
@@ -11,6 +12,9 @@ class BankAccount(ABC):
     Abstract Base Class for all bank account types.
        
     """
+    LOW_BALANCE_LEVEL = 50.0
+    LARGE_TRANSACTION_THRESHOLD = 10000.0
+    
     def __init__(self, account_number: int, client_number: int, balance: float, date_created: date):
         """
         Initializes a BankAccount with Validation.
@@ -25,6 +29,9 @@ class BankAccount(ABC):
             ValueError: If account/client numbers are not integers.
        
         """
+        # Invoking Subject's __init__ to initialize the observer list
+        super().__init__()
+
         # Validate integer types for account and client identifiers.
         if not isinstance(account_number, int):
             raise ValueError("Account number must be an integer.")
@@ -65,6 +72,25 @@ class BankAccount(ABC):
     def date_created(self):
         """date: Returns the date the account was created."""
         return self.__date_created
+    
+    def update_balance(self, amount: float) -> None:
+        """
+        Updates the account balance and notifies observers if thresholds
+        are met.
+
+        Args:
+            amount (float): The amount to add to or subtract from the balance.
+        """
+        self.__balance += amount
+
+        # Check for low balance level
+        if self.__balance < BankAccount.LOW_BALANCE_LEVEL:
+            self.notify(f"Low balance warning ${self.__balance:,.2f}: "
+                        f"on account {self.__account_number}.")
+        
+        if abs(amount) > BankAccount.LARGE_TRANSACTION_THRESHOLD:
+            self.notify(f"Large Transaction ${abs(amount):,.2f}: "
+                        f"on account {self.__account_number}.")
     
     @abstractmethod
     def get_service_charge(self) -> float:
