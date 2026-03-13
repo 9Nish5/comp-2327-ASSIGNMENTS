@@ -1,4 +1,5 @@
 from bank_account.bank_account import BankAccount
+from patterns.strategy.management_fee_strategy import ManagementFeeStrategy
 from datetime import date, timedelta
 
 class InvestmentAccount(BankAccount):
@@ -8,7 +9,7 @@ class InvestmentAccount(BankAccount):
     """
     def __init__(self, account_number, client_number, balance, date_created, management_fee):
         """
-        Initializes the InvestmentAccount with a management fee.
+        Initializes the InvestmentAccount and sets up its service charge strategy.
         """
         super().__init__(account_number, client_number, balance, date_created)
         
@@ -17,17 +18,15 @@ class InvestmentAccount(BankAccount):
         except (ValueError, TypeError):
             self.__management_fee = 2.55
 
+        self.__service_charge_strategy = ManagementFeeStrategy(self.__management_fee)
+
     def get_service_charges(self) -> float:
         """
-        Calculates service charges. Management fee is waived if the 
-        account is older than 10 years.
+        Calculates service charges by delegating to the management fee strategy.
+
+        Returns:
+            float: The service charge calculated by the strategy.
         """
-        ten_years_ago = date.today() - timedelta(days=10 * 365.25)
-        
-        if self.date_created <= ten_years_ago:
-            return BankAccount.BASE_SERVICE_CHARGE
-        else:
-            return BankAccount.BASE_SERVICE_CHARGE + self.__management_fee
 
     def __str__(self):
         """

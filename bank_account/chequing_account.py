@@ -1,4 +1,5 @@
 from bank_account.bank_account import BankAccount
+from patterns.strategy.overdraft_strategy import OverdraftStrategy
 
 class ChequingAccount(BankAccount):
     """
@@ -7,6 +8,10 @@ class ChequingAccount(BankAccount):
     
     """
     def __init__(self, account_number, client_number, balance, date_created, overdraft_limit, overdraft_rate):
+        """
+        Initializes the ChequingAccount and sets up its service charge strategy.
+        
+        """
         super().__init__(account_number, client_number, balance, date_created)
 
         try:
@@ -19,17 +24,18 @@ class ChequingAccount(BankAccount):
         except (ValueError, TypeError):
             self.__overdraft_rate = 0.05
 
-        
+        # Create the private strategy attribute
+        self.__service_charge_strategy = OverdraftStrategy(self.__overdraft_limit, self.__overdraft_rate)
 
     def get_service_charges(self) -> float:
-        """Calculates changes based on overdraft limit."""
-        total_charges = (BankAccount.BASE_SERVICE_CHARGE+
-                        (self.__overdraft_limit - self.balance)
-                         * self.__overdraft_rate)
-        if self.balance >= self.__overdraft_limit:
-            return BankAccount.BASE_SERVICE_CHARGE
-        else:
-            return total_charges
+        """
+        Calculates service charges by delegating to the overdraft strategy.
+
+        Returns:
+            float: The service charge calculated by the strategy.
+
+        """
+        return self.__service_charge_strategy.calculate_service_charge(self)
         
     def __str__(self):
         return (f"{super().__str__()}"
