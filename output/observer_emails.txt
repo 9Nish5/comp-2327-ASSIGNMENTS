@@ -1,0 +1,60 @@
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:25:13.730333
+Message: Notification for  123Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:25:13.730849
+Message: Notification for  123Ezio Auditore: Low balance warning $20.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:25:13.731153
+Message: Notification for  123Ezio Auditore: Large Transaction $15,480.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:32:26.010089
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:32:26.010662
+Message: Notification for 123: Ezio Auditore: Low balance warning $20.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:32:26.010937
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,480.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:47.538551
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:47.538959
+Message: Notification for 123: Ezio Auditore: Low balance warning $20.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:47.539262
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,480.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:52.189997
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,000.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:52.190446
+Message: Notification for 123: Ezio Auditore: Low balance warning $20.00: on account 1001.
+---
+---
+To: ezio.auditore@ac.com
+Subject: ALERT: Unusual Activity: 2026-03-13 05:33:52.190739
+Message: Notification for 123: Ezio Auditore: Large Transaction $15,480.00: on account 1001.
+---

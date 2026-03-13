@@ -3,7 +3,7 @@ from datetime import date
 from patterns.observer.subject import Subject
 
 
-class BankAccount(ABC):
+class BankAccount(Subject, ABC):
     
     """
     Represents a bank account,
@@ -93,36 +93,13 @@ class BankAccount(ABC):
                         f"on account {self.__account_number}.")
     
     @abstractmethod
-    def get_service_charge(self) -> float:
+    def get_service_charges(self) -> float:
         """
         Calculates and returns the service charges for the account.
         Must be implemented by subclass.
         """
         pass    
     
-    def get_service_charges(self) -> float:
-        """
-
-        Calculates and returns the service chargess for the account.
-        Must be implemented by subclasses.
-        
-        """
-        pass
-    
-    def update_balance(self, amount: float):
-        """
-        Updates the account balance.
-
-        Args:
-            amount (float): The numeric amount to add (positive) or 
-            subtract (negative).
-
-        """
-        try: 
-            self.__balance += float(amount)
-        except (ValueError, TypeError):
-            # Requirements state: If invalid, do not update the balance.
-            pass
 
     def deposit(self, amount: float):
         """

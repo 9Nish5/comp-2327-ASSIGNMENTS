@@ -27,6 +27,7 @@ class InvestmentAccount(BankAccount):
         Returns:
             float: The service charge calculated by the strategy.
         """
+        return self.__service_charge_strategy.calculate_service_charge(self)
 
     def __str__(self):
         """
